@@ -1,0 +1,18 @@
+crypto:
+  secret-key:
+spring:
+  application:
+    name: core-data
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://localhost:3306
+    username:
+    password:
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+server:
+  port: 8081
+  servlet:
+    context-path: /core-data
