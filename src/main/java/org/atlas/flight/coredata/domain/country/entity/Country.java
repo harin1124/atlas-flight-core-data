@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.atlas.flight.coredata.domain.countrylanguage.entity.CountryLanguage;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -11,6 +12,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -43,6 +46,10 @@ public class Country {
 
 	@Column(name = "REGION_CD", length = 10)
 	private String regionCd;
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "COUNTRY_CD", referencedColumnName = "COUNTRY_CD", insertable = false, updatable = false)
+	private List<CountryLanguage> countryLanguages = new ArrayList<>();
 
 	@Column(name = "USE_YN", length = 1, nullable = false)
 	private String useYn;
