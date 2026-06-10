@@ -1,13 +1,13 @@
 crypto:
-  secret-key:
+  secret-key: ${CRYPTO_SECRET_KEY}
 spring:
   application:
     name: core-data
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mariadb://localhost:3306
-    username:
-    password:
+    url: jdbc:log4jdbc:mariadb://localhost:3306/ATF_CORE_DATA?allowMultiQueries=true
+    username: atf_core_data_admin
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
