@@ -16,4 +16,9 @@ spring:
 server:
   port: 8081
   servlet:
-    context-path: /core-data
+    context-path: /core-data/api
+
+logging:
+  level:
+    jdbc: 'OFF'              # log4jdbc audit/connection/resultset 차단 (HikariCP housekeeper의 Connection.isValid 노이즈 포함)
+    jdbc.sqltiming: 'INFO'   # 실행 SQL + 수행시간은 유지
